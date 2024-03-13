@@ -62,8 +62,8 @@ function Config.ShowRequiredItems(items, show)
     TriggerEvent('inventory:client:requiredItems', items, show)
 end
 
-Config.MinimumPaletoPolice = 4
-Config.MinimumPacificPolice = 5
-Config.MinimumFleecaPolice = 3
-Config.MinimumThermitePolice = 2
+Config.MinimumPaletoPolice = 1
+Config.MinimumPacificPolice = 1
+Config.MinimumFleecaPolice = 1
+Config.MinimumThermitePolice = 1
 Config.OutlawCooldown = 5 -- The amount of minutes it takes for the cops to be able to be called again after they were called
