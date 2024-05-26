@@ -15,23 +15,13 @@ function Config.DoorlockAction(doorId, setLocked)
     TriggerServerEvent('qb-doorlock:server:updateState', doorId, setLocked, false, false, true, false, false)
 end
 
---- This function will be triggered once the hack is done
---- @param success boolean
---- @param bank number | string
---- @return nil
-function Config.OnHackDone(success, bank)
-    TriggerEvent('mhacking:hide')
-    if not success then return end
-    TriggerServerEvent('qb-bankrobbery:server:setBankState', bank)
-end
-
 --- This will be triggered once an action happens that can drop evidence
 --- @param pos vector3
 --- @param chance number
 --- @return nil
 function Config.OnEvidence(pos, chance)
     if math.random(1, 100) > chance or QBCore.Functions.IsWearingGloves() then return end
-    TriggerServerEvent("evidence:server:CreateFingerDrop", pos)
+    TriggerServerEvent('evidence:server:CreateFingerDrop', pos)
 end
 
 --- This will be called each 10 seconds whilst drilling a safety deposit box
@@ -44,7 +34,7 @@ end
 --- @param message string
 --- @return nil
 function Config.OnPoliceAlert(message)
-    TriggerServerEvent("police:server:policeAlert", message)
+    TriggerServerEvent('police:server:policeAlert', message)
 end
 
 --- This is called when the user is nearby an interaction that requires said items, this will trigger the box that shows what items you need
@@ -59,7 +49,7 @@ end
 --- @param show boolean
 --- @return nil
 function Config.ShowRequiredItems(items, show)
-    TriggerEvent('inventory:client:requiredItems', items, show)
+    TriggerEvent('qb-inventory:client:requiredItems', items, show)
 end
 
 Config.MinimumPaletoPolice = 1
